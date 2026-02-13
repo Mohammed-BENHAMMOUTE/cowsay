@@ -38,8 +38,9 @@
     "url": "https://github.com/piuccio/cowsay.git"
   },
   "scripts": {
-    "prepare": "rollup -c",
-    "test": "tape test/**/*.js"
+    "prepare": "husky && rollup -c",
+    "test": "tape test/**/*.js",
+    "lint": "eslint ."
   },
   "dependencies": {
     "get-stdin": "8.0.0",
@@ -48,6 +49,8 @@
     "yargs": "15.4.1"
   },
   "devDependencies": {
+    "eslint": "^8.57.0",
+    "husky": "^9.1.7",
     "@rollup/plugin-commonjs": "15.0.0",
     "@rollup/plugin-node-resolve": "9.0.0",
     "execa": "5.0.0",
