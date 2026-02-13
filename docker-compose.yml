@@ -1,0 +1,7 @@
+services:
+  cowsay:
+    build: .
+    container_name: cowsay
+    stdin_open: true
+    tty: true
+    command: ["Hello from docker-compose!"]
