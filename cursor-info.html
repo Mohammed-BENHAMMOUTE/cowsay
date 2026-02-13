@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Cursor Model Info</title>
+    <style>
+      body {
+        font-family: system-ui, -apple-system, sans-serif;
+        max-width: 32rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      h1 { font-size: 1.25rem; margin-bottom: 1.5rem; }
+      .info { margin-bottom: 1rem; }
+      .label { font-weight: 600; color: #555; }
+      .value { margin-top: 0.25rem; }
+      #time { font-variant-numeric: tabular-nums; }
+    </style>
+  </head>
+  <body>
+    <h1 id="title">Cursor Model Info</h1>
+    <div class="info">
+      <div class="label">Model (Cursor)</div>
+      <div class="value" id="model">—</div>
+    </div>
+    <div class="info">
+      <div class="label">Time</div>
+      <div class="value" id="time">—</div>
+    </div>
+    <script>
+      (function () {
+        var params = new URLSearchParams(window.location.search);
+        var modelEl = document.getElementById('model');
+        var timeEl = document.getElementById('time');
+        var titleEl = document.getElementById('title');
+        var title = params.get('title') || document.title;
+        document.title = title;
+        titleEl.textContent = title;
+        modelEl.textContent = params.get('model') || 'Cursor AI';
+        function showTime() {
+          timeEl.textContent = new Date().toLocaleString();
+        }
+        showTime();
+        setInterval(showTime, 1000);
+      })();
+    </script>
+  </body>
+</html>
